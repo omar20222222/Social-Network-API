@@ -1,7 +1,7 @@
 const addDateSuffix = (date) => {
   let dateStr = date.toString();
 
-  // get last char of date string
+ 
   const lastChar = dateStr.charAt(dateStr.length - 1);
 
   if (lastChar === "1" && dateStr !== "11") {
@@ -16,7 +16,7 @@ const addDateSuffix = (date) => {
 
   return dateStr;
 };
-// function to format timestamp
+
 module.exports = (
   timestamp,
   { monthLength = "short", dateSuffix = true } = {}
@@ -69,13 +69,13 @@ module.exports = (
   const year = dateObj.getFullYear();
 
   let hour;
-  // checking for 24 hour time
+  
   if (dateObj.getHours > 12) {
     hour = Math.floor(dateObj.getHours() / 2);
   } else {
     hour = dateObj.getHours();
   }
-  // note: if the hour is 0 (12:00am) then switch it to 12
+  
   if (hour === 0) {
     hour = 12;
   }
