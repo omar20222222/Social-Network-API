@@ -1,18 +1,22 @@
 const router = require("express").Router();
-const {
-  getCourses,
-  getSingleCourse,
-  createCourse,
-  updateCourse,
-  deleteCourse,
-} = require("../../controllers/thought-controllers.js");
 
-router.route("/").get(getCourses).post(createCourse);
+const {
+  getAllUsers,
+  getUserById,
+  createUser,
+  updateUser,
+  deleteUser,
+  addFriend,
+  removeFriend,
+} = require("../controllers/user-controller");
+
+router.route("/users").get(getAllUsers).post(createUser);
+
+router.route("/users/:id").get(getUserById).put(updateUser).delete(deleteUser);
 
 router
-  .route("/:courseId")
-  .get(getSingleCourse)
-  .put(updateCourse)
-  .delete(deleteCourse);
+  .route("/users/:userId/friends/:friendId")
+  .post(addFriend)
+  .delete(removeFriend);
 
 module.exports = router;
