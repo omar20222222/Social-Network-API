@@ -4,6 +4,9 @@ const reactionSchema = require("./Reaction");
 
 const thoughtsSchema = new Schema(
   {
+    id: {
+      type: Number,
+    },
     thoughtText: {
       type: String,
 
@@ -24,7 +27,7 @@ const thoughtsSchema = new Schema(
       virtuals: true,
       getters: true,
     },
-    id: false,
+    // id: false,
   }
 );
 
